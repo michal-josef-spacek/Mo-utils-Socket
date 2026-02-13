@@ -74,7 +74,7 @@ Mo socket utilities for checking of data objects.
 
  check_socket($self, $key);
 
-Check parameter defined by C<$key> if it's socket or not.
+Check parameter defined by C<$key> if it's open socket or not.
 Value could be undefined.
 
 Returns undef.

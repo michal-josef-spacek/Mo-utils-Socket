@@ -13,8 +13,8 @@ SUBROUTINES
   "check_socket"
      check_socket($self, $key);
 
-    Check parameter defined by $key if it's socket or not. Value could be
-    undefined.
+    Check parameter defined by $key if it's open socket or not. Value could
+    be undefined.
 
     Returns undef.
 
