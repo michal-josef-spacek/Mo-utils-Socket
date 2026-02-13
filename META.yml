@@ -20,6 +20,7 @@ meta-spec:
 name: Mo-utils-Socket
 no_index:
   directory:
+    - examples
     - inc
     - t
     - xt
