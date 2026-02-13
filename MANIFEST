@@ -20,5 +20,6 @@ README
 Socket.pm
 t/Mo-utils-Socket/01-use.t
 t/Mo-utils-Socket/02-version.t
+t/Mo-utils-Socket/03-check_socket.t
 xt/Mo-utils-Socket/01-pod_coverage.t
 xt/Mo-utils-Socket/02-pod.t
