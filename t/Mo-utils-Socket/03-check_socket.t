@@ -47,10 +47,10 @@ is($EVAL_ERROR, "Parameter 'key' doesn't contain valid socket.\n",
 clean();
 
 SKIP: {
-	skip $Check::Socket::ERROR_MESSAGE, 1 unless Check::Socket::check_socket();
+	skip $Check::Socket::ERROR_MESSAGE, 2 unless Check::Socket::check_socket();
 
 	my ($sock1, $sock2);
-	skip "Cannot use socketpair: $ERRNO"
+	skip "Cannot use socketpair: $ERRNO", 2
 		unless socketpair($sock1, $sock2, AF_UNIX, SOCK_STREAM, PF_UNSPEC);
 
 	# Test.
