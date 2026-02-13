@@ -26,12 +26,10 @@ sub check_socket {
 	}
 
 	# Other.
-	eval {
-		getsockopt($self->{$key}, SOL_SOCKET, SO_TYPE);
-	};
-	if ($EVAL_ERROR) {
+	my $opt = getsockopt($self->{$key}, SOL_SOCKET, SO_TYPE);
+	if (! defined $opt) {
 		err "Parameter '$key' doesn't contain valid socket.",
-			'Error', $EVAL_ERROR,
+			'Error', $ERRNO,
 		;
 	}
 
