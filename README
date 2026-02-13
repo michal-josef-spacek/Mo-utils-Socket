@@ -27,11 +27,14 @@ EXAMPLE1
      use strict;
      use warnings;
 
-     use IO::Socket;
+     use English;
      use Mo::utils::Socket qw(check_socket);
+     use Socket qw(AF_UNIX SOCK_STREAM PF_UNSPEC);
 
+     socketpair(my $sock1, my $sock2, AF_UNIX, SOCK_STREAM, PF_UNSPEC)
+             or die "socketpair: $ERRNO";
      my $self = {
-             'key' => IO::Socket->new,
+             'key' => $sock1,
      };
      check_socket($self, 'key');
 
@@ -59,7 +62,7 @@ EXAMPLE2
      print "ok\n";
 
      # Output like:
-     # TODO
+     # #Error [../Mo/utils/Socket.pm:25] Parameter 'key' doesn't contain valid socket.
 
 DEPENDENCIES
     English, Error::Pure, Exporter, Readonly, Socket.
