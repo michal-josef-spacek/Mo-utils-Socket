@@ -18,6 +18,14 @@ sub check_socket {
 
 	_check_key($self, $key) && return;
 
+	# e.g. IO::Socket->new without open.
+	if (! defined fileno($self->{$key})) {
+		err "Parameter '$key' doesn't contain valid socket.",
+			'Error', 'File descriptor does not exist',
+		;
+	}
+
+	# Other.
 	eval {
 		getsockopt($self->{$key}, SOL_SOCKET, SO_TYPE);
 	};
