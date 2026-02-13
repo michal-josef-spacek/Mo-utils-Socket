@@ -1,0 +1,88 @@
+NAME
+    Mo::utils::Socket - Mo socket utilities.
+
+SYNOPSIS
+     use Mo::utils::Socket qw(check_socket);
+
+     check_socket($self, $key);
+
+DESCRIPTION
+    Mo socket utilities for checking of data objects.
+
+SUBROUTINES
+  "check_socket"
+     check_socket($self, $key);
+
+    Check parameter defined by $key if it's socket or not. Value could be
+    undefined.
+
+    Returns undef.
+
+ERRORS
+     check_socket():
+             Parameter '%s' doesn't contain valid socket.
+                     Error: %s
+
+EXAMPLE1
+     use strict;
+     use warnings;
+
+     use IO::Socket;
+     use Mo::utils::Socket qw(check_socket);
+
+     my $self = {
+             'key' => IO::Socket->new,
+     };
+     check_socket($self, 'key');
+
+     # Print out.
+     print "ok\n";
+
+     # Output:
+     # ok
+
+EXAMPLE2
+     use strict;
+     use warnings;
+
+     use Error::Pure;
+     use Mo::utils::Socket qw(check_socket);
+
+     $Error::Pure::TYPE = 'Error';
+
+     my $self = {
+             'key' => 'xx',
+     };
+     check_socket($self, 'key');
+
+     # Print out.
+     print "ok\n";
+
+     # Output like:
+     # TODO
+
+DEPENDENCIES
+    English, Error::Pure, Exporter, Readonly, Socket.
+
+SEE ALSO
+    Mo  Micro Objects. Mo is less.
+
+    Mo::utils
+        Mo utilities.
+
+REPOSITORY
+    <https://github.com/michal-josef-spacek/Mo-utils-Socket>
+
+AUTHOR
+    Michal Josef Špaček <mailto:skim@cpan.org>
+
+    <http://skim.cz>
+
+LICENSE AND COPYRIGHT
+    © 2026 Michal Josef Špaček
+
+    BSD 2-Clause License
+
+VERSION
+    0.01
+
